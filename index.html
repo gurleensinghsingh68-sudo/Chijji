@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Rishita 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffd1dc 0%, #ffb3d9 50%, #ffc9e5 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 4em;
+            color: #ff69b4;
+            text-shadow: 3px 3px 6px rgba(255, 105, 180, 0.3);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.5em;
+            color: #ff1493;
+            font-style: italic;
+        }
+
+        .animation-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 60px 0;
+            position: relative;
+            height: 400px;
+        }
+
+        .avocado {
+            width: 150px;
+            height: 200px;
+            background: linear-gradient(135deg, #9ccc65 0%, #7cb342 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+            animation: float 3s ease-in-out infinite, moveToKoala 4s ease-in-out infinite;
+        }
+
+        .avocado-seed {
+            width: 60px;
+            height: 80px;
+            background: linear-gradient(135deg, #8d6e63 0%, #6d4c41 100%);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .avocado-face {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .avocado-eyes {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        .eye {
+            width: 12px;
+            height: 12px;
+            background: #000;
+            border-radius: 50%;
+            animation: blink 3s infinite;
+        }
+
+        .avocado-smile {
+            width: 40px;
+            height: 20px;
+            border: 3px solid #000;
+            border-top: none;
+            border-radius: 0 0 40px 40px;
+            margin: 0 auto;
+        }
+
+        .koala {
+            width: 180px;
+            height: 220px;
+            background: linear-gradient(135deg, #d7ccc8 0%, #bcaaa4 100%);
+            border-radius: 50% 50% 45% 45%;
+            position: relative;
+            margin-left: 100px;
+            animation: float 3s ease-in-out infinite 0.5s;
+        }
+
+        .koala-ear {
+            width: 60px;
+            height: 80px;
+            background: linear-gradient(135deg, #d7ccc8 0%, #bcaaa4 100%);
+            border-radius: 50%;
+            position: absolute;
+            top: -20px;
+        }
+
+        .koala-ear.left {
+            left: 10px;
+        }
+
+        .koala-ear.right {
+            right: 10px;
+        }
+
+        .koala-ear-inner {
+            width: 35px;
+            height: 50px;
+            background: #ffccbc;
+            border-radius: 50%;
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .koala-face {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .koala-eyes {
+            display: flex;
+            gap: 35px;
+            margin-bottom: 15px;
+        }
+
+        .koala-eye {
+            width: 15px;
+            height: 15px;
+            background: #000;
+            border-radius: 50%;
+            animation: blink 3s infinite 0.5s;
+        }
+
+        .koala-nose {
+            width: 30px;
+            height: 25px;
+            background: #000;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            margin: 0 auto 5px;
+        }
+
+        .koala-smile {
+            width: 50px;
+            height: 25px;
+            border: 3px solid #000;
+            border-top: none;
+            border-radius: 0 0 50px 50px;
+            margin: 0 auto;
+        }
+
+        .hearts-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .heart {
+            color: #ff1493;
+            font-size: 30px;
+            position: absolute;
+            animation: floatHearts 3s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        .heart:nth-child(1) { animation-delay: 0s; left: -30px; }
+        .heart:nth-child(2) { animation-delay: 1s; left: 0px; }
+        .heart:nth-child(3) { animation-delay: 2s; left: 30px; }
+
+        .messages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .message-card {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .message-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(255, 105, 180, 0.3);
+        }
+
+        .message-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .message-card h3 {
+            color: #ff1493;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .message-card p {
+            color: #666;
+            line-height: 1.8;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes moveToKoala {
+            0%, 100% {
+                transform: translateX(0) rotate(0deg);
+            }
+            25% {
+                transform: translateX(20px) rotate(5deg);
+            }
+            50% {
+                transform: translateX(40px) rotate(-5deg);
+            }
+            75% {
+                transform: translateX(20px) rotate(3deg);
+            }
+        }
+
+        @keyframes blink {
+            0%, 90%, 100% {
+                transform: scaleY(1);
+            }
+            95% {
+                transform: scaleY(0.1);
+            }
+        }
+
+        @keyframes floatHearts {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-50px) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) scale(0.5);
+            }
+        }
+
+        .message-card:nth-child(1) { animation-delay: 0.2s; }
+        .message-card:nth-child(2) { animation-delay: 0.4s; }
+        .message-card:nth-child(3) { animation-delay: 0.6s; }
+        .message-card:nth-child(4) { animation-delay: 0.8s; }
+        .message-card:nth-child(5) { animation-delay: 1s; }
+        .message-card:nth-child(6) { animation-delay: 1.2s; }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            .animation-container {
+                height: 300px;
+            }
+            .avocado {
+                width: 100px;
+                height: 140px;
+            }
+            .koala {
+                width: 120px;
+                height: 150px;
+                margin-left: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Happy Birthday Rishita! 🎉</h1>
+            <p>You're as perfect as an avocado meeting its koala 💕</p>
+        </div>
+
+        <div class="animation-container">
+            <div class="avocado">
+                <div class="avocado-seed"></div>
+                <div class="avocado-face">
+                    <div class="avocado-eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                    </div>
+                    <div class="avocado-smile"></div>
+                </div>
+            </div>
+
+            <div class="hearts-container">
+                <div class="heart">💕</div>
+                <div class="heart">💖</div>
+                <div class="heart">💗</div>
+            </div>
+
+            <div class="koala">
+                <div class="koala-ear left">
+                    <div class="koala-ear-inner"></div>
+                </div>
+                <div class="koala-ear right">
+                    <div class="koala-ear-inner"></div>
+                </div>
+                <div class="koala-face">
+                    <div class="koala-eyes">
+                        <div class="koala-eye"></div>
+                        <div class="koala-eye"></div>
+                    </div>
+                    <div class="koala-nose"></div>
+                    <div class="koala-smile"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="messages">
+            <div class="message-card">
+                <div class="message-icon">🥑💚</div>
+                <h3>You're the Guac to My Chip</h3>
+                <p>Just like an avocado makes everything better, you make my life absolutely perfect. Happy Birthday, my love!</p>
+            </div>
+
+            <div class="message-card">
+                <div class="message-icon">🥑✨</div>
+                <h3>Perfectly Ripe</h3>
+                <p>You're like a perfectly ripe avocado - rare, precious, and worth the wait. I'm so lucky to have found you!</p>
+            </div>
+
+            <div class="message-card">
+                <div class="message-icon">🥑💕</div>
+                <h3>Avo Great Day</h3>
+                <p>I hope your birthday is as amazing as you are! Let's make it un-fur-gettable together, just like our avocado and koala friends!</p>
+            </div>
+
+            <div class="message-card">
+                <div class="message-icon">🥑🌟</div>
+                <h3>You're One in a Melon</h3>
+                <p>Actually, you're one in an avocado! You're healthy, wholesome, and absolutely essential to my happiness.</p>
+            </div>
+
+            <div class="message-card">
+                <div class="message-icon">🥑💖</div>
+                <h3>Let's Avo-Cuddle</h3>
+                <p>Just like this avocado loves its koala, I love spending every moment with you. Here's to many more birthdays together!</p>
+            </div>
+
+            <div class="message-card">
+                <div class="message-icon">🥑🎂</div>
+                <h3>Extra Everything</h3>
+                <p>I'd always pay extra for you! You're worth all the love, all the happiness, and all the celebrations. Happy Birthday, beautiful!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
